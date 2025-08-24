@@ -3,7 +3,7 @@ print ("Trata de adivinar la palabra secreta. Tienes 6 intentos")
 
 import random # Importa el modulo para elegir palabras al azar
 
-palabras_facil = ["casa", "perro", "gato", "sol"]
+palabras_facil = ["casa", "perro", "gato", "sol"] # Uso de corchetes al ser listas
 palabras_medio = ["computadora", "universidad", "programacion"]
 palabras_dificil = ["paralelepipedo", "otorrinolaringologo"]
 
@@ -49,8 +49,8 @@ def jugar_ahorcado():
             else:
                 palabra_oculta += "_ "
 
-        print(f"\nPalabra: {palabra_oculta}")
-        print(f"Intentos restantes: {intentos_restantes}")
+        print(f"\nPalabra: {palabra_oculta}") # f" significa f-string o cadena formateada
+        print(f"Intentos restantes: {intentos_restantes}") 
 
         if "_ " not in palabra_oculta:
             print("\n¡Felicidades! ¡Has adivinado la palabra!")
@@ -58,13 +58,13 @@ def jugar_ahorcado():
 
         letra_jugador = input("Ingresa una letra: ").lower()
 
-        if len(letra_jugador) != 1 or not letra_jugador.isalpha():
+        if len(letra_jugador) != 1 or not letra_jugador.isalpha():  # len() (abreviatura de length) devuelve la longitud o el número de elementos de un objeto y .isalpha() es un método de las cadenas de texto que devuelve un valor booleano (True o False). Su función es verificar si una cadena de texto contiene solo letras del alfabeto. Ignora espacios, números y símbolos.
             print("Entrada inválida. Por favor, ingresa solo una letra.")
         elif letra_jugador in letras_adivinadas:
             print("Ya has intentado esa letra. Intenta con otra.")
         elif letra_jugador in palabra_secreta:
             print("¡Acierto! La letra está en la palabra.")
-            letras_adivinadas.add(letra_jugador)
+            letras_adivinadas.add(letra_jugador) # El método .add() es específico de los conjuntos (set). Su única función es agregar un nuevo elemento a un conjunto.
         else:
             print("Error, la letra no está en la palabra.")
             intentos_restantes -= 1
